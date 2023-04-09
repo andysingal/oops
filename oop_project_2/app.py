@@ -45,3 +45,10 @@ def menu():
             student = student_list[student_id]
             new_mark = int(input("Enter the new mark to be added: "))
             add_mark(student, new_mark)
+        selection = input("Enter 'p' to print the student list, "
+                          "'s' to add a new student, "
+                          "'a' to add a mark to a student, "
+                          "or 'q' to quit. "
+                          "Enter your selection: ")
+
+menu()
