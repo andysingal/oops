@@ -1,16 +1,30 @@
 class Circle:
-    def __init__(self, radius):
+    VALID_COLORS = ("Red", "Blue", "Green")
+    def __init__(self, radius,color):
         self._radius = radius
+        self._color = color
 
     def get_radius(self):
         return  self._radius
 
     def set_radius(self, new_radius):
-        if isinstance(new_radius, float) and new_radius > 0:
+        if isinstance(new_radius, int) and new_radius > 0:
             self._radius = new_radius
         else:
             print("Please enter a valid value for the radius")
 
-my_circle = Circle(5.0)
+    radius = property(get_radius, set_radius)
+    def get_color(self):
+        return  self._color
 
-print(my_circle.get_radius())
+    def set_color(self, new_color):
+        if new_color in Circle.VALID_COLORS:
+            self._color = new_color
+        else:
+            print("Please enter a valid color")
+
+    color = property(get_color, set_color)
+
+my_circle = Circle(10, "Blue")
+
+print(my_circle.color)
